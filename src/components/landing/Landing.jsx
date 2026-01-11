@@ -19,10 +19,13 @@ function Landing() {
       <Contact />
       <Footer />
 
-      {/* Botón para ir al login */}
       <Link to="/login">
-        <button className="btn-login">Ir al Login</button>
-      </Link>
+       <button className="btn-login">Ir al Login</button>
+       </Link>
+       <Link to="/registro">
+       <button className="btn-registro">Ir al Registro</button>
+       </Link>
+
     </div>
   );
 }

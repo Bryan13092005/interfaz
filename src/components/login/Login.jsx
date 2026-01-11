@@ -1,53 +1,57 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useForm } from "react-hook-form";
+import { authFirebase } from "../firebase";
 import "./Login.css";
 
 const Login = () => {
+
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleLogin = async (data) => {
+    const { email, password } = data;
 
-  
-    if (email.trim() === "" || password.trim() === "") {
-      alert("Completa todos los campos");
-      return;
-    }
-
-    // Cuenta para admin
-    if (email === "admin@gmail.com" && password === "1234") {
-      console.log("Login exitoso. Redirigiendo a /dashboard");
-      navigate("/dashboard");
-    } else {
-      alert("Credenciales incorrectas");
+    try {
+      await signInWithEmailAndPassword(authFirebase, email, password);
+      navigate("/");
+    } catch (error) {
+      alert("Correo o contraseña incorrectos");
     }
   };
 
   return (
     <div className="login-container">
-      <form className="login-box" onSubmit={handleSubmit}>
+      <form className="login-box" onSubmit={handleSubmit(handleLogin)}>
+
         <h2>Iniciar Sesión</h2>
+
         <input
           type="email"
           placeholder="Correo electrónico"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          autoComplete="email"
-          aria-label="Correo electrónico"
+          {...register("email", { required: true })}
         />
+        {errors.email && <span className="errors">Email requerido</span>}
+
         <input
           type="password"
           placeholder="Contraseña"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          autoComplete="current-password"
-          aria-label="Contraseña"
+          {...register("password", { required: true })}
         />
+        {errors.password && <span className="errors">Contraseña requerida</span>}
 
         <button type="submit">Ingresar</button>
+
+       <NavLink to="/registro" className="enlace">
+      ¿No tienes cuenta? Regístrate
+      </NavLink>
+
+
       </form>
     </div>
   );
