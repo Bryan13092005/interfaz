@@ -5,7 +5,7 @@ import Register from "./components/register/Register";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/interfaz/">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
