@@ -18,8 +18,8 @@ function Navbar() {
             <span className="sr-only">Buscar</span>
           </a>
         </li>
-        <li><a href="#" className="a1">Iniciar Sesión</a></li>
-        <li><a href="#" className="a1">Registrarse</a></li>
+        <li><a href="/login" className="a1">Iniciar Sesión</a></li>
+        <li><a href="/register" className="a1">Registrarse</a></li>
       </ul>
     </nav>
   );
