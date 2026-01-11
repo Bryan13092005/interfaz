@@ -1,0 +1,166 @@
+/* ONG.css - Estilos específicos del componente ONG */
+
+.ong-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem 1rem;
+}
+
+.ong-section {
+  margin-bottom: 4rem;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.General {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 3.6rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+/* Colores por categoría */
+.seccion-alimentacion .General {
+  color: var(--color-salud);
+}
+
+.seccion-salud .General {
+  color: var(--color-salud);
+}
+
+.seccion-animales .General {
+  color: var(--color-animales);
+}
+
+.seccion-educacion .General {
+  color: var(--color-animales); /* Nota: Mismo color que animales */
+}
+
+/* Estilos para cada tarjeta ONG */
+.ong-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Colores de fondo por categoría */
+.seccion-alimentacion .ong-info {
+  background-color: var(--color-tarjeta-sp1);
+}
+
+.seccion-salud .ong-info {
+  background-color: var(--color-tarjeta-sp1);
+}
+
+.seccion-animales .ong-info {
+  background-color: var(--color-tarjeta-animales);
+}
+
+.seccion-educacion .ong-info {
+  background-color: var(--color-tarjeta-animales);
+}
+
+/* Imagen de la ONG */
+.img-fundaciones {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 350px;
+}
+
+.img-fundaciones img {
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Contenido de texto */
+.container-ong {
+  flex-grow: 1;
+}
+
+.subtitulo {
+  font-family: var(--fuente-titulos);
+  font-weight: 400;
+  font-size: 2.4rem;
+  color: var(--color-principal);
+  margin-bottom: 1rem;
+}
+
+.texto {
+  font-family: var(--fuente-texto);
+  font-size: 1.5rem;
+  line-height: 1.7;
+  color: var(--color-texto);
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .ong-info {
+    flex-direction: row;
+  }
+  
+  .img-fundaciones {
+    flex-basis: 300px;
+  }
+  
+  .container-ong {
+    flex-basis: 60%;
+  }
+}
+
+@media (max-width: 767px) {
+  .ong-info {
+    padding: 1.5rem;
+  }
+  
+  .General {
+    font-size: 2.8rem;
+  }
+  
+  .subtitulo {
+    font-size: 2rem;
+  }
+  
+  .img-fundaciones {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ong-container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .General {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+  
+  .subtitulo {
+    font-size: 1.8rem;
+  }
+  
+  .texto {
+    font-size: 1.4rem;
+  }
+  
+  .img-fundaciones {
+    max-width: 250px;
+  }
+  
+  .ong-info {
+    padding: 1rem;
+    margin-bottom: 2.5rem;
+  }
+}

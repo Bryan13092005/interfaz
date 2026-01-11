@@ -1,0 +1,145 @@
+/* Footer.css */
+
+.footer {
+  background-color: #2c3f52; /* Azul oscuro */
+  color: #ffffff;
+  padding: 4rem 1rem 2rem;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== CONTACTOS ===== */
+.footer-contactos {
+  text-align: center;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 3rem;
+}
+
+.footer-subtitulo {
+  color: #39f5e8; /* Turquesa */
+  margin-bottom: 3rem;
+  font-size: 3.2rem;
+  font-family: var(--fuente-titulos);
+  font-weight: 600;
+}
+
+/* Cards */
+.personas {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.persona-card {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 1.4rem 1rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.persona-card:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.persona-name {
+  font-size: 1.5rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.persona-phone {
+  font-size: 1.4rem;
+  color: #39f5e8;
+  font-weight: 600;
+}
+
+/* ===== REDES SOCIALES ===== */
+.footer-redes {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.redes-titulo {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.redes-iconos {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  padding: 0.6rem;
+  transition: all 0.3s ease;
+}
+
+.social-link svg {
+  fill: #ffffff;
+  opacity: 1;
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.social-link:hover svg {
+  fill: #ffffff;
+}
+
+/* ===== COPYRIGHT ===== */
+.copyright {
+  text-align: center;
+  font-size: 1.3rem;
+  color: #ffffff;
+  opacity: 0.8;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .personas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-subtitulo {
+    font-size: 2.6rem;
+  }
+
+  .personas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .personas {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-subtitulo {
+    font-size: 2.3rem;
+  }
+}

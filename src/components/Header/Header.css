@@ -1,0 +1,23 @@
+/* Header.css - Estilos específicos del componente Header */
+
+.header.container {
+  max-width: 1400px;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 15px;
+  padding-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .header.container {
+    width: 100%;
+    padding-top: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header.container {
+    width: 98%;
+  }
+}

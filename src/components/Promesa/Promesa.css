@@ -1,0 +1,71 @@
+/* Promesa.css */
+
+.todas-ong {
+  background-color: #18c1b1; /* Celeste de la imagen */
+  padding: 4rem 3rem;
+  border-radius: 14px;
+  max-width: 1200px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+/* TÍTULO */
+.ong-title {
+  font-family: var(--fuente-titulos);
+  font-size: 3.2rem;
+  font-weight: 700;
+  font-style: italic;
+  text-transform: uppercase;
+
+  color: #1f2f44; /* Azul oscuro del título */
+
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  text-decoration-thickness: 4px;
+  text-underline-offset: 6px;
+
+  margin-bottom: 3rem;
+}
+
+/* CONTENEDOR DEL TEXTO */
+.visiones-frase {
+  max-width: 850px;
+  margin: 0 auto;
+
+  font-family: var(--fuente-texto);
+  font-size: 1.9rem;
+  line-height: 1.7;
+  color: #ffffff;
+
+  text-align: left;
+  padding-left: 2.5rem;
+
+  border-left: 4px solid #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .todas-ong {
+    padding: 3rem 2rem;
+  }
+
+  .ong-title {
+    font-size: 2.6rem;
+  }
+
+  .visiones-frase {
+    font-size: 1.7rem;
+    padding-left: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ong-title {
+    font-size: 2.2rem;
+  }
+
+  .visiones-frase {
+    font-size: 1.5rem;
+    border-left-width: 3px;
+  }
+}

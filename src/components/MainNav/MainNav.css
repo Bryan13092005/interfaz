@@ -1,0 +1,60 @@
+/* MainNav.css - Estilos específicos del componente MainNav */
+
+.navbar__botones {
+  background-color: rgba(220, 238, 170, 0.6);
+  margin: 1rem 0;
+  border-radius: 8px;
+  padding: 0.5rem 0;
+}
+
+.ul2 {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem;
+  margin: 0;
+  list-style: none;
+}
+
+.li2 {
+  color: var(--color-texto);
+  font-family: var(--fuente-texto);
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.li2:hover {
+  background-color: var(--color-blanco);
+  color: var(--color-principal);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .navbar__botones {
+    width: 100%;
+    margin: 0.5rem 0;
+    border-radius: 0;
+  }
+
+  .ul2 {
+    padding: 0.5rem;
+    gap: 0.8rem;
+  }
+
+  .li2 {
+    font-size: 1.6rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .li2 {
+    font-size: 1.7rem;
+  }
+}
