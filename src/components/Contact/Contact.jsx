@@ -39,7 +39,7 @@ function Contact() {
   };
 
   return (
-    <section className="formulario-mapa container">
+    <section className="formulario-mapa container" id='contacto'>
       <div className="formulario">
         <h2>Contáctanos</h2>
         

@@ -12,12 +12,6 @@ function Navbar() {
       />
       <h1 className="h1">VOCES QUE AYUDAN</h1>
       <ul className="ul1">
-        <li>
-          <a href="#" className="a1" aria-label="Buscar">
-            <span aria-hidden="true">🔍</span>
-            <span className="sr-only">Buscar</span>
-          </a>
-        </li>
         <li><a href="/login" className="a1">Iniciar Sesión</a></li>
         <li><a href="/register" className="a1">Registrarse</a></li>
       </ul>

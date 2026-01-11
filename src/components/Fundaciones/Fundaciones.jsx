@@ -61,7 +61,7 @@ function Fundaciones() {
   ];
 
   return (
-    <section className="foundations-section">
+    <section className="foundations-section" id='donantes'>
       <h2 className="section-title">FUNDACIONES</h2>
       <div className="cards-container">
         {foundations.map((foundation) => (

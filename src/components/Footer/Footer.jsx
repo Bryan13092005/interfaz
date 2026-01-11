@@ -41,7 +41,7 @@ function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer">
+    <footer className="footer" id='llamanos'>
       <div className="footer-container">
         <div className="footer-contactos">
           <h2 className="footer-subtitulo">Llámanos</h2>
