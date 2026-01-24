@@ -1,18 +1,45 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Landing from "./components/landing/Landing";
-import Login from "./components/login/Login";
-import Register from "./components/register/Register";
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom'
+import './App.css'
+import Login from './components/login/Login'
+import Register from './components/register/Register'
+import Home from './components/landing/Landing'
+import Dashboard from './components/dashboard/Dashboard'
+import { useEffect, useState } from 'react'
+import { authFirebase, dbFirebase } from './components/firebase'
+import { collection, getDocs } from 'firebase/firestore'
 
 function App() {
+
+  const [user, setUser] = useState(null)
+  const [fundaciones, setFundaciones] = useState([])
+
+  const obtenerDatos = async () => {
+    const snapshot = await getDocs(collection(dbFirebase, "fundaciones"));
+    const documentos = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setFundaciones(documentos);
+  }
+
+  useEffect(() => {
+    authFirebase.onAuthStateChanged((user) => {
+      setUser(user)
+    })
+    obtenerDatos()
+  }, [])
+
   return (
-    <BrowserRouter basename="/interfaz/">
+    <BrowserRouter basename="/interfaz">
       <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/registro" element={<Register />} />
+        {/* Si hay usuario, al entrar a "/" lo manda al dashboard */}
+        <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Home fundaciones={fundaciones} />} />
+        
+        <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} />
+        
+        <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
+        
+        <Route path="/registro" element={user ? <Navigate to="/dashboard" /> : <Register />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

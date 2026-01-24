@@ -1,22 +1,54 @@
-/* Mensajes de error */
+/* Mensajes de error - Un tono más cálido y legible sobre blanco */
 .error-text {
-  color: #f87171;
+  color: #ef4444; /* Un rojo "Soft Alert" más profesional */
   font-size: 13px;
-  margin-bottom: 10px;
-  display: block;
+  margin-top: -10px; /* Lo acerca al input que falló */
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 500;
+  background-color: #fef2f2; /* Fondo sutil para que resalte el error */
+  padding: 8px;
+  border-radius: 6px;
+  border-left: 3px solid #ef4444;
 }
 
-/* Link inferior */
-.login-link {
-  margin-top: 20px;
+/* Contenedor del link inferior para centrarlo bien */
+.login-link-container {
+  margin-top: 25px;
   text-align: center;
-  color: #38bdf8;
+  border-top: 1px solid #e2e8f0; /* Línea divisoria suave */
+  padding-top: 20px;
+}
+
+/* Link inferior (¿No tienes cuenta? / Regístrate) */
+.login-link {
+  color: #37D9D9; /* El turquesa principal de tu marca */
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.3s ease;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
 }
 
 .login-link:hover {
-  color: #0ea5e9;
-  text-decoration: underline;
+  color: #2bc2c2;
+  text-decoration: none; /* Quitamos el subrayado simple */
+  transform: translateY(-1px);
+  filter: brightness(0.9);
+}
+
+/* Efecto de subrayado animado para el link */
+.login-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #37D9D9;
+  transition: width .3s;
+}
+
+.login-link:hover::after {
+  width: 100%;
 }
