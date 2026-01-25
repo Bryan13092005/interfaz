@@ -40,7 +40,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home fundaciones={fundaciones} />} />
-        <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/landing" />} />
+        <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/" />} />
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
         <Route path="/registro" element={user ? <Navigate to="/" /> : <Register />} />
         <Route path="*" element={<Navigate to="/" />} />
