@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { authFirebase, dbFirebase } from './components/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
-// Importa tus componentes (ajusta la ruta si tus carpetas tienen otros nombres)
 import Login from './components/login/Login';
 import Register from './components/register/Register';
 import Home from './components/landing/Landing';
@@ -34,6 +33,7 @@ function App() {
     obtenerDatos();
     return () => unsubscribe();
   }, []);
+  
   if (loading) return null;
 
   return (
@@ -41,8 +41,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home fundaciones={fundaciones} />} />
         <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} />
-        <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/registro" element={user ? <Navigate to="/dashboard" /> : <Register />} />
+        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        <Route path="/registro" element={user ? <Navigate to="/" /> : <Register />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
