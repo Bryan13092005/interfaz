@@ -21,7 +21,7 @@ function App() {
       const documentos = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setFundaciones(documentos);
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error cargando datos:", error);
     }
   };
 
