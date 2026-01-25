@@ -21,7 +21,7 @@ function App() {
       const documentos = snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
       setFundaciones(documentos);
     } catch (error) {
-      console.error("Error cargando datos:", error);
+      console.error("Error al obtener datos:", error);
     }
   };
 
@@ -30,19 +30,29 @@ function App() {
       setUser(currentUser);
       setLoading(false);
     });
+
     obtenerDatos();
+    
     return () => unsubscribe();
   }, []);
-  
   if (loading) return null;
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home fundaciones={fundaciones} />} />
-        <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} />
-        <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/registro" element={user ? <Navigate to="/dashboard" /> : <Register />} />
+        <Route 
+          path="/dashboard" 
+          element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} 
+        />
+        <Route 
+          path="/login" 
+          element={user ? <Navigate to="/dashboard" /> : <Login />} 
+        />
+        <Route 
+          path="/registro" 
+          element={user ? <Navigate to="/dashboard" /> : <Register />} 
+        />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </BrowserRouter>
