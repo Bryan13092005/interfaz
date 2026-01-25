@@ -11,7 +11,6 @@ const Dashboard = () => {
     const handleLogout = async () => {
         try {
             await authFirebase.signOut();
-            navigate("/");
         } catch (error) {
             console.error("Error al salir:", error);
         }
