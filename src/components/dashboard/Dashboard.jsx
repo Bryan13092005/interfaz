@@ -10,7 +10,7 @@ const Dashboard = () => {
     const handleLogout = async () => {
         try {
             await authFirebase.signOut();
-            window.location.href = "/";
+            navigate("/");
         } catch (error) {
             console.log(error);
         }
