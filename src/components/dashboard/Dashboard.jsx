@@ -12,7 +12,6 @@ const Dashboard = () => {
     const handleLogout = async () => {
         try {
             await authFirebase.signOut();
-            // Corregido: Usamos navigate("/") para volver a la Landing Page
             navigate("/"); 
         } catch (error) {
             console.log(error);
