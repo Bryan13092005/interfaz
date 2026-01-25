@@ -2,15 +2,18 @@ import { authFirebase } from '../firebase';
 import { useForm } from "react-hook-form";
 import { dbFirebase } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
+import { useNavigate } from "react-router-dom"; 
 import './Dashboard.css';
 
 const Dashboard = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigate = useNavigate(); 
 
     const handleLogout = async () => {
         try {
             await authFirebase.signOut();
-            navigate("/");
+            // Corregido: Usamos navigate("/") para volver a la Landing Page
+            navigate("/"); 
         } catch (error) {
             console.log(error);
         }
@@ -39,7 +42,7 @@ const Dashboard = () => {
             </header>
 
             <div className="content-layout">
-                {/* Sección Crear Fundación */}
+                {/* Sección Formulario */}
                 <section className="glass-card">
                     <div className="card-intro">
                         <h2>Registrar Fundación</h2>
@@ -68,8 +71,6 @@ const Dashboard = () => {
                         <button type="submit" className="submit-btn">Guardar Registro</button>
                     </form>
                 </section>
-
-                {/* Sección Listado */}
                 <section className="glass-card">
                     <div className="card-intro">
                         <h2>Listado de Trabajos</h2>

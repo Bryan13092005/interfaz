@@ -1,4 +1,4 @@
-import { Route, HashRouter, Routes, Navigate } from 'react-router-dom'; // Cambiamos a HashRouter para evitar el error 404
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import Login from './components/login/Login';
 import Register from './components/register/Register';
@@ -26,24 +26,24 @@ function App() {
   useEffect(() => {
     const unsubscribe = authFirebase.onAuthStateChanged((currentUser) => {
       setUser(currentUser);
-      setLoading(false);
+      setLoading(false); 
     });
     obtenerDatos();
     return () => unsubscribe();
   }, []);
 
-  if (loading) return null; 
+  if (loading) return null;
 
   return (
-    <HashRouter> 
+    <BrowserRouter basename="/interfaz"> 
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Home fundaciones={fundaciones} />} />
+        <Route path="/" element={<Home fundaciones={fundaciones} />} />
         <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} />
         <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
         <Route path="/registro" element={user ? <Navigate to="/dashboard" /> : <Register />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
