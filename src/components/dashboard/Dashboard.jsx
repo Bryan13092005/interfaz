@@ -1,31 +1,26 @@
-import { authFirebase } from '../firebase';
+import { authFirebase, dbFirebase } from '../firebase';
 import { useForm } from "react-hook-form";
-import { dbFirebase } from "../firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import './Dashboard.css';
 
 const Dashboard = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleLogout = async () => {
         try {
             await authFirebase.signOut();
-            navigate("/"); 
-        } catch (error) {
-            console.log(error);
-        }
+            navigate("/");
+        } catch (error) { console.log(error); }
     };
 
     const handleCreate = async (data) => {
         try {
             await addDoc(collection(dbFirebase, "fundaciones"), data);
             reset();
-            alert("¡Fundación registrada con éxito!");
-        } catch (error) {
-            console.error("Error:", error);
-        }
+            alert("¡Fundación registrada!");
+        } catch (error) { console.error(error); }
     };
 
     return (
@@ -41,39 +36,35 @@ const Dashboard = () => {
             </header>
 
             <div className="content-layout">
-                {/* Sección Formulario */}
                 <section className="glass-card">
                     <div className="card-intro">
                         <h2>Registrar Fundación</h2>
-                        <p>Añade una nueva Fundación a la red de apoyo</p>
+                        <p>Añade una nueva ONG a la red</p>
                     </div>
                     <form className="admin-form" onSubmit={handleSubmit(handleCreate)}>
                         <div className="input-box">
                             <label>Nombre de la ONG:</label>
-                            <input type="text" placeholder="Ej: Red de Apoyo Local" {...register("nombre", { required: true })} />
-                            {errors.nombre && <span className="err">Campo requerido</span>}
+                            <input type="text" {...register("nombre", { required: true })} />
+                            {errors.nombre && <span className="err">Requerido</span>}
                         </div>
-
-
                         <div className="input-box">
-                            <label>Meta de Recaudación (USD):</label>
-                            <input type="number" placeholder="0.00" {...register("precio", { required: true })} />
-                            {errors.precio && <span className="err">Monto requerido</span>}
+                            <label>Meta (USD):</label>
+                            <input type="number" {...register("precio", { required: true })} />
+                            {errors.precio && <span className="err">Requerido</span>}
                         </div>
-
                         <div className="input-box">
-                            <label>Descripción / Misión:</label>
-                            <textarea placeholder="¿A quién ayudan?" {...register("descripcion", { required: true })} />
-                            {errors.descripcion && <span className="err">Descripción requerida</span>}
+                            <label>Descripción:</label>
+                            <textarea {...register("descripcion", { required: true })} />
+                            {errors.descripcion && <span className="err">Requerido</span>}
                         </div>
-
                         <button type="submit" className="submit-btn">Guardar Registro</button>
                     </form>
                 </section>
+
                 <section className="glass-card">
                     <div className="card-intro">
                         <h2>Listado de Trabajos</h2>
-                        <p>Gestión de ONGs registradas</p>
+                        <p>Gestión de registros</p>
                     </div>
                     <div className="empty-placeholder">
                         <div className="folder-icon"></div>
