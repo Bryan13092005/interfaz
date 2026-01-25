@@ -27,9 +27,8 @@ function App() {
   }, [])
 
   return (
-    <BrowserRouter basename="/interfaz">
+    <BrowserRouter>
       <Routes>
-        {/* Si hay usuario, al entrar a "/" lo manda al dashboard */}
         <Route path="/" element={user ? <Navigate to="/dashboard" /> : <Home fundaciones={fundaciones} />} />
         
         <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} />
