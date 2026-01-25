@@ -1,4 +1,4 @@
-import { Route, HashRouter, Routes, Navigate } from 'react-router-dom';
+import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { authFirebase, dbFirebase } from './components/firebase';
 import { collection, getDocs } from 'firebase/firestore';
@@ -34,12 +34,10 @@ function App() {
     return () => unsubscribe();
   }, []);
   
-  if (loading) {
-    return ( null   );
-  }
+  if (loading) return null;
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home fundaciones={fundaciones} />} />
         <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/" />} />
@@ -47,7 +45,7 @@ function App() {
         <Route path="/registro" element={user ? <Navigate to="/" /> : <Register />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 
