@@ -12,15 +12,19 @@ const Dashboard = () => {
         try {
             await authFirebase.signOut();
             navigate("/");
-        } catch (error) { console.log(error); }
+        } catch (error) {
+            console.error("Error al salir:", error);
+        }
     };
 
     const handleCreate = async (data) => {
         try {
             await addDoc(collection(dbFirebase, "fundaciones"), data);
             reset();
-            alert("¡Fundación registrada!");
-        } catch (error) { console.error(error); }
+            alert("¡Fundación registrada con éxito!");
+        } catch (error) {
+            console.error("Error al crear:", error);
+        }
     };
 
     return (
@@ -39,24 +43,27 @@ const Dashboard = () => {
                 <section className="glass-card">
                     <div className="card-intro">
                         <h2>Registrar Fundación</h2>
-                        <p>Añade una nueva ONG a la red</p>
+                        <p>Añade una nueva ONG a la red de apoyo</p>
                     </div>
                     <form className="admin-form" onSubmit={handleSubmit(handleCreate)}>
                         <div className="input-box">
                             <label>Nombre de la ONG:</label>
-                            <input type="text" {...register("nombre", { required: true })} />
-                            {errors.nombre && <span className="err">Requerido</span>}
+                            <input type="text" placeholder="Ej: Red de Apoyo" {...register("nombre", { required: true })} />
+                            {errors.nombre && <span className="err">Campo requerido</span>}
                         </div>
+
                         <div className="input-box">
-                            <label>Meta (USD):</label>
-                            <input type="number" {...register("precio", { required: true })} />
-                            {errors.precio && <span className="err">Requerido</span>}
+                            <label>Meta de Recaudación (USD):</label>
+                            <input type="number" placeholder="0.00" {...register("precio", { required: true })} />
+                            {errors.precio && <span className="err">Monto requerido</span>}
                         </div>
+
                         <div className="input-box">
-                            <label>Descripción:</label>
-                            <textarea {...register("descripcion", { required: true })} />
-                            {errors.descripcion && <span className="err">Requerido</span>}
+                            <label>Descripción / Misión:</label>
+                            <textarea placeholder="¿A quién ayudan?" {...register("descripcion", { required: true })} />
+                            {errors.descripcion && <span className="err">Descripción requerida</span>}
                         </div>
+
                         <button type="submit" className="submit-btn">Guardar Registro</button>
                     </form>
                 </section>
@@ -64,7 +71,7 @@ const Dashboard = () => {
                 <section className="glass-card">
                     <div className="card-intro">
                         <h2>Listado de Trabajos</h2>
-                        <p>Gestión de registros</p>
+                        <p>Gestión de ONGs registradas</p>
                     </div>
                     <div className="empty-placeholder">
                         <div className="folder-icon"></div>
