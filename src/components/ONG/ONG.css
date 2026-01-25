@@ -104,6 +104,39 @@
   color: var(--color-texto);
 }
 
+.ongs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+.ong-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.seccion-alimentacion .ong-card {
+  background-color: var(--color-tarjeta-sp1);
+}
+
+.seccion-salud .ong-card {
+  background-color: var(--color-tarjeta-sp1);
+}
+
+.seccion-animales .ong-card {
+  background-color: var(--color-tarjeta-animales);
+}
+
+.seccion-educacion .ong-card {
+  background-color: var(--color-tarjeta-animales);
+}
+
+
 /* Responsive Design */
 @media (min-width: 768px) {
   .ong-info {
@@ -162,5 +195,17 @@
   .ong-info {
     padding: 1rem;
     margin-bottom: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .ongs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .ongs-grid {
+    grid-template-columns: 1fr;
   }
 }

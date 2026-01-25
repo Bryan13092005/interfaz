@@ -174,26 +174,25 @@ function ONG() {
     <section className="ong-container">
       {categorias.map((categoria) => (
         <div key={categoria.id} className={`ong-section ${categoria.colorClass}`}>
-          <div className="titulo">
-            <h2 className="General">{categoria.title}</h2>
-          </div>
-          
-          {categoria.ongs.map((ong) => (
-            <div key={ong.id} className={`ong-info ${categoria.id}-info`}>
-              <div className="img-fundaciones">
-                <img 
-                  src={ong.imagen} 
-                  alt={ong.alt} 
-                  loading="lazy"
-                />
-              </div>
-              <div className="container-ong">
-                <h2 className="subtitulo">{ong.nombre}</h2>
-                <p className="texto">{ong.descripcion}</p>
-              </div>
-            </div>
-          ))}
+  <div className="titulo">
+    <h2 className="General">{categoria.title}</h2>
+  </div>
+
+  <div className="ongs-grid">
+    {categoria.ongs.map((ong) => (
+      <div key={ong.id} className={`ong-card ${categoria.id}-info`}>
+        <div className="img-fundaciones">
+          <img src={ong.imagen} alt={ong.alt} loading="lazy" />
         </div>
+        <div className="container-ong">
+          <h2 className="subtitulo">{ong.nombre}</h2>
+          <p className="texto">{ong.descripcion}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
       ))}
     </section>
   );

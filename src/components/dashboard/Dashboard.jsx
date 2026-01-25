@@ -1,6 +1,6 @@
 import { authFirebase, dbFirebase } from '../firebase';
 import { useForm } from "react-hook-form";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs, deleteDoc, doc, updateDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import './Dashboard.css';
@@ -10,6 +10,8 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     const [fundaciones, setFundaciones] = useState([]);
+    const [valor, setValor] = useState("Crear");
+    const [id, setId] = useState("");
 
     const handleLogout = async () => {
         try {
@@ -22,12 +24,22 @@ const Dashboard = () => {
 
     const handleCreate = async (data) => {
         try {
-            await addDoc(collection(dbFirebase, "fundaciones"), data);
-            reset();
+            if (id) {
+                await updateDoc(doc(dbFirebase, "fundaciones", id), data);
+                setId("");
+                reset({
+                    nombre: '',
+                    precio: '',
+                    descripcion: ''
+                });
+                alert("Fundación actualizada con éxito");
+            } else {
+                await addDoc(collection(dbFirebase, "fundaciones"), data);
+                reset();
+            }
             handleGet();
-            alert("¡Fundación registrada con éxito!");
         } catch (error) {
-            console.error("Error al crear:", error);
+            console.log(error);
         }
     };
 
@@ -42,6 +54,29 @@ const Dashboard = () => {
         } catch (error) {
             console.error("Error al obtener registros:", error);
         }
+    };
+
+    const handleDelete = async (id) => {
+        const confirmar = confirm("¿Estás seguro de que deseas eliminar esta fundación?");
+        if (confirmar) {
+            try {
+                const fundacionDoc = doc(dbFirebase, "fundaciones", id);
+                await deleteDoc(fundacionDoc);
+                handleGet();
+            } catch (error) {
+                console.error("Error al eliminar:", error);
+            }
+        }
+    };
+
+    const handleEdit = (fundacion) => {
+        setValor("Actualizar");
+        setId(fundacion.id);
+        reset({
+            nombre: fundacion.nombre,
+            precio: fundacion.precio,
+            descripcion: fundacion.descripcion
+        });
     };
 
     useEffect(() => {
@@ -63,8 +98,8 @@ const Dashboard = () => {
             <div className="content-layout">
                 <section className="glass-card">
                     <div className="card-intro">
-                        <h2>Registrar Fundación</h2>
-                        <p>Añade una nueva ONG a la red de apoyo</p>
+                        <h2>{valor} Fundación</h2>
+                        <p>{id ? "Actualiza los datos de la ONG" : "Añade una nueva ONG a la red de apoyo"}</p>
                     </div>
                     <form className="admin-form" onSubmit={handleSubmit(handleCreate)}>
                         <div className="input-box">
@@ -90,15 +125,34 @@ const Dashboard = () => {
                         <div className="input-box">
                             <label>Descripción / Misión:</label>
                             <textarea
-                                placeholder="¿A quién ayudan?"
+                                placeholder="¿A quién ayudan? ¿Cuál es su misión?"
                                 {...register("descripcion", { required: true })}
                             />
                             {errors.descripcion && <span className="err">Descripción requerida</span>}
                         </div>
 
-                        <button type="submit" className="submit-btn">
-                            Guardar Registro
-                        </button>
+                        <div className="form-actions">
+                            <button type="submit" className="submit-btn">
+                                {valor}
+                            </button>
+                            {id && (
+                                <button 
+                                    type="button" 
+                                    className="cancel-btn"
+                                    onClick={() => {
+                                        setId("");
+                                        setValor("Crear");
+                                        reset({
+                                            nombre: '',
+                                            precio: '',
+                                            descripcion: ''
+                                        });
+                                    }}
+                                >
+                                    Cancelar
+                                </button>
+                            )}
+                        </div>
                     </form>
                 </section>
 
@@ -123,10 +177,16 @@ const Dashboard = () => {
                                 </div>
 
                                 <div className="route-actions">
-                                    <button className="update-btn">
+                                    <button 
+                                        className="update-btn"
+                                        onClick={() => handleEdit(fundacion)}
+                                    >
                                         Actualizar
                                     </button>
-                                    <button className="delete-btn">
+                                    <button 
+                                        className="delete-btn"
+                                        onClick={() => handleDelete(fundacion.id)}
+                                    >
                                         Eliminar
                                     </button>
                                 </div>

@@ -31,7 +31,17 @@
     gap: 15px;
 }
 
+.header-user {
+    display: flex;
+    gap: 25px;
+}
 
+.route-actions {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    gap: 15px;
+}
 
 .header-brand h1 {
     font-size: 1.4rem;
@@ -61,7 +71,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
     gap: 30px;
-    padding: 40px 5%;
+    padding: 30px 0;
     max-width: 1400px;
     margin: 0 auto; /* CENTRA EL CONTENIDO */
     width: 100%;
