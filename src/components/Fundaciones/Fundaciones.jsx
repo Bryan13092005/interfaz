@@ -15,13 +15,13 @@ function Fundaciones() {
       image: medicinaSvg,
       alt: 'Ilustración de salud y protección',
       items: [
-        { name: 'METROFRATERNIDAD', url: 'https://www.metrofraternidad.org.ec/' },
-        { name: 'VISTIENDO SONRISAS', url: 'https://vistiendosonrisas.org/' },
-        { name: 'FUNDACIÓN REINA DE QUITO', url: 'https://reinadequito.org/' },
-        { name: 'FUNDACIÓN CAMINA CONMIGO', url: 'https://caminaconmigo.org.ec/' },
-        { name: 'FUNDACIÓN OPERACIÓN SONRISA', url: 'https://www.operationsmile.org/' },
-        { name: 'ALBERGUE SAN JUAN DE DIOS', url: 'https://sanjuandedios.org.ec/' },
-        { name: 'UNICEF', url: 'https://www.unicef.org/' },
+        { name: 'METROFRATERNIDAD', url: 'https://metrofraternidad.org/' },
+        { name: 'VISTIENDO SONRISAS', url: 'https://vistiendosonrisas.com/' },
+        { name: 'FUNDACIÓN REINA DE QUITO', url: 'https://www.fundacionreinadequito.org/' },
+        { name: 'FUNDACIÓN CAMINA CONMIGO', url: 'https://caminaconmigoec.org/' },
+        { name: 'FUNDACIÓN OPERACIÓN SONRISA', url: 'https://operacionsonrisa.org.ec/' },
+        { name: 'ALBERGUE SAN JUAN DE DIOS', url: 'https://alberguesanjuandedios.com/' },
+        { name: 'UNICEF', url: 'https://unicef.org.ec/' },
         { name: 'OPS', url: 'https://www.paho.org/' }
       ]
     },
@@ -31,8 +31,8 @@ function Fundaciones() {
       image: animalesSvg,
       alt: 'Ilustración de medio ambiente y animales',
       items: [
-        { name: 'PROTECCIÓN ANIMAL ECUADOR', url: 'https://proteccionanimal.ec/' },
-        { name: 'ALTROPICO', url: 'https://www.altropico.org/' },
+        { name: 'PROTECCIÓN ANIMAL ECUADOR', url: 'https://pae.ec/' },
+        { name: 'ALTROPICO', url: 'https://altropico.org.ec/' },
         { name: 'WWF', url: 'https://www.worldwildlife.org/' }
       ]
     },
@@ -42,9 +42,9 @@ function Fundaciones() {
       image: educacionSvg,
       alt: 'Ilustración de educación',
       items: [
-        { name: 'CHILDREN INTERNATIONAL', url: 'https://www.children.org/' },
+        { name: 'CHILDREN INTERNATIONAL', url: 'https://www.children.org/es' },
         { name: 'CENTRO DEL MUCHACHO TRABAJADOR', url: 'https://www.cmdt.org.ec/' },
-        { name: 'FUNDACIÓN ECUASOL', url: 'https://ecuador-solar.org/' },
+        { name: 'FUNDACIÓN ECUASOL', url: 'https://www.ecuasol.org/es/inicio/' },
         { name: 'WORLD VISION ECUADOR', url: 'https://www.worldvision.org.ec/' }
       ]
     },
@@ -54,8 +54,8 @@ function Fundaciones() {
       image: alimentacionSvg,
       alt: 'Ilustración de alimentación',
       items: [
-        { name: 'BANCO DE ALIMENTOS QUITO', url: 'https://bancodealimentosquito.org/' },
-        { name: 'CÁRITAS INTERNACIONAL', url: 'https://www.caritas.org/' }
+        { name: 'BANCO DE ALIMENTOS QUITO', url: 'https://www.baq.ec/' },
+        { name: 'CÁRITAS INTERNACIONAL', url: 'https://www.caritasecuador.org/' }
       ]
     }
   ];
