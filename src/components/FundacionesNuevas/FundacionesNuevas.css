@@ -1,0 +1,24 @@
+/* GRID DE TARJETAS */
+.cards-containerNuevas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  list-style: none; 
+}
+
+/* TARJETA */
+.foundation-cardNuevas {
+  background-color: beige;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 0 20px;
+  max-width: 25%;
+}

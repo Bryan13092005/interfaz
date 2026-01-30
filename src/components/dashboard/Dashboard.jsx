@@ -8,10 +8,20 @@ import './Dashboard.css';
 const Dashboard = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
+    const [cambio, setCambio] = useState(false)
 
     const [fundaciones, setFundaciones] = useState([]);
     const [valor, setValor] = useState("Crear");
     const [id, setId] = useState("");
+
+    const cambiarColor = () => {
+        if (cambio) {
+            document.documentElement.style.filter = 'none'
+        } else {
+            document.documentElement.style.filter = 'invert(1)'
+        }
+        setCambio(!cambio)
+    }
 
     const handleLogout = async () => {
         try {
@@ -90,7 +100,7 @@ const Dashboard = () => {
                     <h1>VOCES QUE AYUDAN <span>| Panel Admin</span></h1>
                 </div>
                 <div className="header-user">
-                    <button className="theme-btn">🌙</button>
+                    <button className="theme-toggle" onClick={cambiarColor}>🌙</button>
                     <button className="exit-btn" onClick={handleLogout}>Salir</button>
                 </div>
             </header>

@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import Hero from "../Hero/Hero";
 import ONG from "../ONG/ONG";
 import Fundaciones from "../Fundaciones/Fundaciones";
+import FundacionesNuevas from "../FundacionesNuevas/FundacionesNuevas";
 import Promesa from "../Promesa/Promesa";
 import Contact from "../Contact/Contact";
 import Footer from "../Footer/Footer";
@@ -15,6 +16,7 @@ function Landing() {
       <Hero />
       <ONG />
       <Fundaciones />
+      <FundacionesNuevas />
       <Promesa />
       <Contact />
       <Footer />
