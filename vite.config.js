@@ -1,8 +1,13 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
-// Configuración para GitHub Pages con React Router
 export default defineConfig({
+  // si tu repo se llama "interfaz", pon /interfaz/
+  // para publicar en https://<usuario>.github.io/interfaz/
+  base: '/interfaz/',
   plugins: [react()],
-  base: '/', 
-});
+  build: {
+    // hace que el resultado vaya a la carpeta docs para GitHub Pages (opcional)
+    outDir: 'docs'
+  }
+})
