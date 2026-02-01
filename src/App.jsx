@@ -1,4 +1,4 @@
-import { Route, BrowserRouter, Routes, Navigate } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { authFirebase, dbFirebase } from './components/firebase';
 import { collection, getDocs } from 'firebase/firestore';
@@ -37,15 +37,13 @@ function App() {
   if (loading) return null;
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home fundaciones={fundaciones} />} />
-        <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/interfaz" />} />
-        <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
-        <Route path="/registro" element={user ? <Navigate to="/dashboard" /> : <Register />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home fundaciones={fundaciones} />} />
+      <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Navigate to="/login" />} />
+      <Route path="/login" element={user ? <Navigate to="/dashboard" /> : <Login />} />
+      <Route path="/registro" element={user ? <Navigate to="/dashboard" /> : <Register />} />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 }
 
