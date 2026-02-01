@@ -1,88 +1,85 @@
-/* Hero.css - Estilos específicos del componente Hero */
+/* Hero.css */
 
 .hero.container {
-  max-width: 1300px;              /* MÁS ANCHO */
-  margin: 4rem auto;              /* MÁS ESPACIO ARRIBA Y ABAJO */
-  padding: 3rem 1rem;
-}
-
-.hero__text {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
-  margin-bottom: 3.5rem;
 }
 
 /* TÍTULO */
 .General {
   font-family: var(--fuente-titulos);
-  font-weight: 600;              /* Más ligero */
-  font-size: 3.6rem;
-  text-align: center;
-  margin-bottom: 3.5rem;
+  font-size: clamp(2.6rem, 5vw, 3.8rem);
+  font-weight: 800;
   text-transform: uppercase;
-  color: #28bdb3;                /* Verde turquesa como la imagen */
-  font-style: italic;            /* Itálico */
-  letter-spacing: 0.08em;        /* Más aire entre letras */
+  font-style: italic;
+  color: #1ebdbb;
+  margin-bottom: 3.5rem;
+  letter-spacing: 0.08em;
+
+  /* efecto simple */
+  position: relative;
 }
 
+.General::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 4px;
+  background: #1ebdbb;
+  margin: 14px auto 0;
+  border-radius: 10px;
+}
 
-/* GRID */
+/* GRID DE IMÁGENES */
 .hero__services {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;                      /* MÁS SEPARACIÓN */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
 }
 
-/* TARJETAS */
+/* TARJETA */
 .service {
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
-  border-radius: 14px;            /* MÁS SUAVE */
-  background-color: #ffffff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* HOVER SIMPLE */
 .service:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
 }
 
-/* IMÁGENES */
+/* IMAGEN */
 .service img {
   width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 3;            /* TODAS IGUALES */
+  aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 14px;
-  transition: transform 0.5s ease;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
 .service:hover img {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 /* RESPONSIVE */
-@media (max-width: 1024px) {
-  .hero__services {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .General {
-    font-size: 3.2rem;
-  }
-}
-
 @media (max-width: 768px) {
   .hero.container {
-    padding: 2rem 1rem;
-  }
-
-  .hero__services {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    padding: 3rem 1.5rem;
   }
 
   .General {
-    font-size: 2.8rem;
-    letter-spacing: 0.06em;
+    font-size: 2.6rem;
+  }
+
+  .hero__services {
+    gap: 1.8rem;
   }
 }

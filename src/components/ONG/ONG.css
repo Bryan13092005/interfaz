@@ -1,211 +1,140 @@
-/* ONG.css - Estilos específicos del componente ONG */
-
 .ong-container {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 2rem 1rem;
+    max-width: 1300px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
-.ong-section {
-  margin-bottom: 4rem;
+.main-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1a202c;
+    text-transform: uppercase;
+    margin-bottom: 50px;
 }
 
-.titulo {
-  text-align: center;
-  margin-bottom: 3rem;
+.cat-wrapper {
+    margin-bottom: 60px;
 }
 
-.General {
-  font-family: var(--fuente-titulos);
-  font-weight: 400;
-  font-size: 3.6rem;
-  text-align: center;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
+.cat-name {
+    font-size: 1.5rem;
+    color: #2ec4c6;
+    font-weight: 800;
+    margin-bottom: 20px;
+    border-left: 5px solid #2ec4c6;
+    padding-left: 15px;
+    text-transform: uppercase;
 }
 
-/* Colores por categoría */
-.seccion-alimentacion .General {
-  color: var(--color-salud);
+/* CONTENEDOR RELATIVO PARA LAS FLECHAS */
+.carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
-.seccion-salud .General {
-  color: var(--color-salud);
+/* EL SCROLL */
+.ong-scroll {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 15px 5px 30px;
+    scrollbar-width: none; /* Oculta scroll en Firefox */
 }
 
-.seccion-animales .General {
-  color: var(--color-animales);
+.ong-scroll::-webkit-scrollbar {
+    display: none; /* Oculta scroll en Chrome/Safari */
 }
 
-.seccion-educacion .General {
-  color: var(--color-animales); /* Nota: Mismo color que animales */
-}
-
-/* Estilos para cada tarjeta ONG */
-.ong-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  margin-bottom: 4rem;
-  align-items: center;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-}
-
-/* Colores de fondo por categoría */
-.seccion-alimentacion .ong-info {
-  background-color: var(--color-tarjeta-sp1);
-}
-
-.seccion-salud .ong-info {
-  background-color: var(--color-tarjeta-sp1);
-}
-
-.seccion-animales .ong-info {
-  background-color: var(--color-tarjeta-animales);
-}
-
-.seccion-educacion .ong-info {
-  background-color: var(--color-tarjeta-animales);
-}
-
-/* Imagen de la ONG */
-.img-fundaciones {
-  flex-shrink: 0;
-  width: 100%;
-  max-width: 350px;
-}
-
-.img-fundaciones img {
-  border-radius: 10px;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-/* Contenido de texto */
-.container-ong {
-  flex-grow: 1;
-}
-
-.subtitulo {
-  font-family: var(--fuente-titulos);
-  font-weight: 400;
-  font-size: 2.4rem;
-  color: var(--color-principal);
-  margin-bottom: 1rem;
-}
-
-.texto {
-  font-family: var(--fuente-texto);
-  font-size: 1.5rem;
-  line-height: 1.7;
-  color: var(--color-texto);
-}
-
-.ongs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3rem;
-}
-
+/* LA TARJETA */
 .ong-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  align-items: center;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    flex: 0 0 340px; /* Ancho fijo */
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    border: 1px solid #f0f4f8;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.seccion-alimentacion .ong-card {
-  background-color: var(--color-tarjeta-sp1);
+.ong-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(46, 196, 198, 0.15);
 }
 
-.seccion-salud .ong-card {
-  background-color: var(--color-tarjeta-sp1);
+.card-image {
+    height: 180px;
+    padding: 20px;
+    background: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.seccion-animales .ong-card {
-  background-color: var(--color-tarjeta-animales);
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
-.seccion-educacion .ong-card {
-  background-color: var(--color-tarjeta-animales);
+.card-body {
+    padding: 25px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
 }
 
-
-/* Responsive Design */
-@media (min-width: 768px) {
-  .ong-info {
-    flex-direction: row;
-  }
-  
-  .img-fundaciones {
-    flex-basis: 300px;
-  }
-  
-  .container-ong {
-    flex-basis: 60%;
-  }
+.card-body h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #2d3748;
+    margin-bottom: 12px;
 }
 
-@media (max-width: 767px) {
-  .ong-info {
-    padding: 1.5rem;
-  }
-  
-  .General {
-    font-size: 2.8rem;
-  }
-  
-  .subtitulo {
+.card-body p {
+    font-size: 0.9rem;
+    color: #718096;
+    line-height: 1.5;
+    /* Limita el texto a 4 líneas */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* BOTONES DE NAVEGACIÓN */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    border: 1px solid #eee;
+    color: #2ec4c6;
+    border-radius: 50%;
     font-size: 2rem;
-  }
-  
-  .img-fundaciones {
-    max-width: 280px;
-  }
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.2s;
 }
 
-@media (max-width: 480px) {
-  .ong-container {
-    padding: 1rem 0.5rem;
-  }
-  
-  .General {
-    font-size: 2.4rem;
-    margin-bottom: 2rem;
-  }
-  
-  .subtitulo {
-    font-size: 1.8rem;
-  }
-  
-  .texto {
-    font-size: 1.4rem;
-  }
-  
-  .img-fundaciones {
-    max-width: 250px;
-  }
-  
-  .ong-info {
-    padding: 1rem;
-    margin-bottom: 2.5rem;
-  }
+.nav-btn:hover {
+    background: #2ec4c6;
+    color: #fff;
 }
 
-@media (max-width: 1024px) {
-  .ongs-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+.prev { left: -22px; }
+.next { right: -22px; }
 
-@media (max-width: 600px) {
-  .ongs-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 768px) {
+    .nav-btn { display: none; } 
+    .ong-card { flex: 0 0 280px; }
+    .card-body { height: 180px; }
 }

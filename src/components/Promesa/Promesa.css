@@ -1,71 +1,59 @@
-/* Promesa.css */
+.promesa-banner {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+}
 
-.todas-ong {
-  background-color: #18c1b1; /* Celeste de la imagen */
-  padding: 4rem 3rem;
-  border-radius: 14px;
-  max-width: 1200px;
-  margin: 4rem auto;
+.promesa-contenido {
+  background-color: #2ec4c6; 
+  width: 90%; 
+  max-width: 1400px; 
+  padding: 50px 40px;
+  border-radius: 20px;
   text-align: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
-/* TÍTULO */
-.ong-title {
-  font-family: var(--fuente-titulos);
-  font-size: 3.2rem;
-  font-weight: 700;
-  font-style: italic;
-  text-transform: uppercase;
-
-  color: #1f2f44; /* Azul oscuro del título */
-
-  text-decoration-line: underline;
-  text-decoration-style: double;
-  text-decoration-thickness: 4px;
-  text-underline-offset: 6px;
-
-  margin-bottom: 3rem;
-}
-
-/* CONTENEDOR DEL TEXTO */
-.visiones-frase {
-  max-width: 850px;
-  margin: 0 auto;
-
-  font-family: var(--fuente-texto);
-  font-size: 1.9rem;
-  line-height: 1.7;
+/* --- EFECTO DE BRILLO EN EL TÍTULO --- */
+.efecto-brillo {
   color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  
+  /* Esto crea el efecto de "barrido" de luz */
+  background: linear-gradient(to right, #fff 20%, #b3f4f5 40%, #fff 60%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
 
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+/* ------------------------------------- */
+
+.promesa-texto {
+  color: #ffffff;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-style: italic;
+  padding-left: 20px;
+  border-left: 4px solid rgba(255, 255, 255, 0.6);
   text-align: left;
-  padding-left: 2.5rem;
-
-  border-left: 4px solid #ffffff;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .todas-ong {
-    padding: 3rem 2rem;
-  }
-
-  .ong-title {
-    font-size: 2.6rem;
-  }
-
-  .visiones-frase {
-    font-size: 1.7rem;
-    padding-left: 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .ong-title {
-    font-size: 2.2rem;
-  }
-
-  .visiones-frase {
-    font-size: 1.5rem;
-    border-left-width: 3px;
-  }
+  .promesa-contenido { width: 95%; padding: 30px 20px; }
+  .efecto-brillo { font-size: 1.8rem; }
+  .promesa-texto { font-size: 1.1rem; }
 }

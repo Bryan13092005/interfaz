@@ -3,9 +3,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { authFirebase } from "../firebase";
+import "./Register.css"; 
 
 const Register = () => {
-
     const navigate = useNavigate()
     const { register, handleSubmit, formState: { errors } } = useForm()
 
@@ -22,36 +22,51 @@ const Register = () => {
     return (
         <div className="login-container">
             <div className="login-box">
-                <h2>Registro</h2>
+                
+                <h2 className="register-title">Registro</h2>
 
-                <form onSubmit={handleSubmit(handleRegister)}>
-                    <input
-                        type="text"
-                        placeholder="Tu nombre"
-                        {...register("name", { required: true })}
-                    />
-                    {errors.name && <span className="error-text">El nombre es requerido</span>}
+                <form onSubmit={handleSubmit(handleRegister)} className="auth-form">
+                    <div className="input-group">
+                        <input
+                            type="text"
+                            placeholder="Tu nombre"
+                            className="custom-input"
+                            {...register("name", { required: true })}
+                        />
+                        {errors.name && <span className="error-text">El nombre es requerido</span>}
+                    </div>
 
-                    <input
-                        type="email"
-                        placeholder="Tu email"
-                        {...register("email", { required: true })}
-                    />
-                    {errors.email && <span className="error-text">El correo es requerido</span>}
+                    <div className="input-group">
+                        <input
+                            type="email"
+                            placeholder="Tu email"
+                            className="custom-input"
+                            {...register("email", { required: true })}
+                        />
+                        {errors.email && <span className="error-text">El correo es requerido</span>}
+                    </div>
 
-                    <input
-                        type="password"
-                        placeholder="Tu contraseña"
-                        {...register("password", { required: true })}
-                    />
-                    {errors.password && <span className="error-text">La contraseña es requerida</span>}
+                    <div className="input-group">
+                        <input
+                            type="password"
+                            placeholder="Tu contraseña"
+                            className="custom-input"
+                            {...register("password", { required: true })}
+                        />
+                        {errors.password && <span className="error-text">La contraseña es requerida</span>}
+                    </div>
 
-                    <button type="submit">Registrarse</button>
+                    
+                    <button type="submit" className="btn-submit">
+                        Registrarse ahora
+                    </button>
                 </form>
 
-                <NavLink to="/login" className="login-link">
-                    ¿Ya tienes cuenta? Inicia sesión
-                </NavLink>
+                <div className="footer-link">
+                    <NavLink to="/login" className="login-link">
+                        ¿Ya tienes cuenta? Inicia sesión
+                    </NavLink>
+                </div>
             </div>
         </div>
     )

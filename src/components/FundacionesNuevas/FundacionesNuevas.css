@@ -1,24 +1,72 @@
-/* GRID DE TARJETAS */
+/* ================= GRID DE TARJETAS ================= */
 .cards-containerNuevas {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 32px;
   padding: 0;
-  list-style: none; 
+  list-style: none;
 }
 
-/* TARJETA */
+/* ================= TARJETA ================= */
 .foundation-cardNuevas {
-  background-color: beige;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
-  border: 1px solid #f0f0f0;
+  position: relative;
+
+  background: linear-gradient(180deg, #ffffff, #f6f7f4);
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.06),
+    0 2px 6px rgba(0, 0, 0, 0.03);
+
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  padding: 0 20px;
-  max-width: 25%;
+  padding: 28px;
+
+  width: calc(25% - 32px);
+  min-width: 260px;
+
+  transition:
+    transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.35s ease,
+    background 0.35s ease;
+}
+
+/* ================= HOVER ================= */
+.foundation-cardNuevas:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 35px 70px rgba(0, 0, 0, 0.12),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+  border-color: #2ec4c6;
+  background: linear-gradient(180deg, #ffffff, #f0fbfb);
+}
+
+/* ================= BRILLO SUTIL ================= */
+.foundation-cardNuevas::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    130deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.foundation-cardNuevas:hover::before {
+  opacity: 1;
+}
+
+/* ================= OPTIMIZACIÓN ================= */
+.foundation-cardNuevas {
+  will-change: transform;
 }
