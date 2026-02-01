@@ -212,3 +212,19 @@
 @media (max-width: 900px) {
     .content-layout { grid-template-columns: 1fr; }
 }
+
+@media (max-width: 480px) {
+    .main-header { padding: 1rem 3%; }
+    .header-brand h1 { font-size: 1.2rem; }
+    .header-user { gap: 15px; }
+    .route-actions { gap: 10px; }
+    .content-layout { padding: 20px 0; gap: 20px; }
+    .glass-card { padding: 25px; }
+    .card-intro h2 { font-size: 1.2rem; }
+    .admin-form input, .admin-form textarea { padding: 12px; font-size: 0.9rem; }
+    .submit-btn { padding: 12px; }
+    .empty-placeholder { padding: 40px 15px; }
+    .folder-icon { font-size: 3rem; }
+    .funda-item { padding: 12px; }
+    .funda-info h4 { font-size: 0.9rem; }
+}

@@ -94,3 +94,56 @@
 .login-box a:hover {
   text-decoration: underline;
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .login-box {
+    padding: 35px;
+    max-width: 350px;
+  }
+
+  .login-box h2 {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+  }
+
+  .login-box input {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .login-box button {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+  .login-box p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 25px;
+    max-width: 300px;
+  }
+
+  .login-box h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+
+  .login-box input {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  .login-box button {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .login-box p {
+    font-size: 0.85rem;
+  }
+}

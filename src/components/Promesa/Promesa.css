@@ -57,3 +57,9 @@
   .efecto-brillo { font-size: 1.8rem; }
   .promesa-texto { font-size: 1.1rem; }
 }
+
+@media (max-width: 480px) {
+  .promesa-contenido { width: 98%; padding: 20px 15px; }
+  .efecto-brillo { font-size: 1.5rem; margin-bottom: 20px; }
+  .promesa-texto { font-size: 1rem; padding-left: 15px; }
+}

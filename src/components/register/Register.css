@@ -51,3 +51,26 @@
 .login-link:hover::after {
   width: 100%;
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .error-text {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .login-link {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-text {
+    font-size: 11px;
+    padding: 5px 7px;
+  }
+
+  .login-link {
+    font-size: 12px;
+  }
+}

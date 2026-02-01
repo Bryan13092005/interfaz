@@ -70,3 +70,35 @@
 .foundation-cardNuevas {
   will-change: transform;
 }
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .foundation-cardNuevas {
+    width: calc(33.333% - 21.333px);
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards-containerNuevas {
+    gap: 24px;
+  }
+
+  .foundation-cardNuevas {
+    width: calc(50% - 12px);
+    min-width: 220px;
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-containerNuevas {
+    gap: 16px;
+  }
+
+  .foundation-cardNuevas {
+    width: 100%;
+    min-width: 200px;
+    padding: 20px;
+  }
+}

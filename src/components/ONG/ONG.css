@@ -138,3 +138,15 @@
     .ong-card { flex: 0 0 280px; }
     .card-body { height: 180px; }
 }
+
+@media (max-width: 480px) {
+    .ong-container { margin: 40px auto; padding: 0 10px; }
+    .main-title { font-size: 2rem; margin-bottom: 30px; }
+    .cat-name { font-size: 1.2rem; padding-left: 10px; }
+    .ong-scroll { gap: 15px; padding: 10px 5px 20px; }
+    .ong-card { flex: 0 0 250px; }
+    .card-image { height: 150px; padding: 15px; }
+    .card-body { padding: 20px; height: 160px; }
+    .card-body h3 { font-size: 1rem; }
+    .card-body p { font-size: 0.85rem; }
+}

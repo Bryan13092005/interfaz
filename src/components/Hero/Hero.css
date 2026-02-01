@@ -83,3 +83,24 @@
     gap: 1.8rem;
   }
 }
+
+@media (max-width: 480px) {
+  .hero.container {
+    padding: 2rem 1rem;
+  }
+
+  .General {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .General::after {
+    width: 60px;
+    margin: 10px auto 0;
+  }
+
+  .hero__services {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
