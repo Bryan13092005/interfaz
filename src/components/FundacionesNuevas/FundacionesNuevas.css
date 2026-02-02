@@ -1,4 +1,4 @@
-/* ================= GRID DE TARJETAS ================= */
+
 .cards-containerNuevas {
   display: flex;
   flex-wrap: wrap;
@@ -8,7 +8,17 @@
   list-style: none;
 }
 
-/* ================= TARJETA ================= */
+.titulo-fundaciones {
+  text-align: center;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  margin-bottom: 3rem;
+  color: #1a365d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
 .foundation-cardNuevas {
   position: relative;
 
@@ -32,10 +42,9 @@
     transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.35s ease,
-    background 0.35s ease;
 }
 
-/* ================= HOVER ================= */
+
 .foundation-cardNuevas:hover {
   transform: translateY(-12px);
   box-shadow:
@@ -45,7 +54,7 @@
   background: linear-gradient(180deg, #ffffff, #f0fbfb);
 }
 
-/* ================= BRILLO SUTIL ================= */
+
 .foundation-cardNuevas::before {
   content: "";
   position: absolute;
